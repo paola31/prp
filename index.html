@@ -20,7 +20,7 @@
 
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    
+
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -80,8 +80,17 @@
 
                 <div class="col-lg-7">
                     <form action="forms/quote.php" method="post" class="php-email-form">
-                        <h3>InstaYa</h3>
-                        <p>Caracteristicas del paquete</p>
+                        <div class="text-center">
+                        <h2>InstaYa</h2>
+                        <h3>Recogida de paquetes</h3>
+
+                        <h1>
+
+
+                        </h1>
+                        </div>
+
+                        <p>CARACTERISTICAS DEL PAQUETE</p>
                         <div class="row gy-4">
 
                             <div class="col-md-6">
@@ -107,18 +116,173 @@
                                 <input type="checkbox" id="md">
                             </div>
 
+                            <div >
 
-
-
+                            </div>
                             <div class="col-md-12 text-center">
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
                                 <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
 
                                 <button type="submit">Siguiente</button>
+
                             </div>
 
+                            <div class="text-center">
+                                <h2>InstaYa</h2>
+                                <h3>Recogida de paquetes</h3>
+
+                                <h1>
+
+
+                                </h1>
+                            </div>
+
+                            <p>REMITENTE</p>
+
+                            <div class="col-md-6">
+                                <input type="text" name="departure" class="form-control" placeholder="Nombres" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="text" name="delivery" class="form-control" placeholder="Apellidos" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="text" name="weight" class="form-control" placeholder="Identificación" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="text" name="dimensions" class="form-control" placeholder="Día de recolección" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="text" name="dimensions" class="form-control" placeholder="Franja de recolección" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="text" name="dimensions" class="form-control" placeholder="Dirección de recolección" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="text" name="dimensions" class="form-control" placeholder="Ciudad de recolección" required>
+                            </div>
+                            <div>
+
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
+
+                                <button type="submit">Atrás</button> <button type="submit">Siguiente</button>
+                            </div>
+
+                            <div class="text-center">
+                                <h2>InstaYa</h2>
+                                <h3>Recogida de paquetes</h3>
+
+                                <h1>
+
+
+                                </h1>
+                            </div>
+
+                            <p>DESTINATARIO</p>
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <input type="text" name="departure" class="form-control" placeholder="Nombres" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input type="text" name="delivery" class="form-control" placeholder="Apellidos" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input type="text" name="weight" class="form-control" placeholder="Identificación" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input type="text" name="dimensions" class="form-control" placeholder="Dirección de destino" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input type="text" name="dimensions" class="form-control" placeholder="Ciudad de destino" required>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+
+                                    </button> <button type="submit">Programar envió</button>
+
+                                </div>
+
+                                <div class="text-center">
+                                    <h2>InstaYa</h2>
+                                    <h3>Recogida de paquetes</h3>
+
+                                    <h1>
+
+
+                                    </h1>
+                                </div>
+
+
+                                <p>TÚ ENVIÓ HA SIDO PROGRAMADO CON EXITO!</p>
+                                <div class="col-md-12 text-center">
+                                <p>Puedes rastrear tú envió en el siguiente código</p>
+                                    </div>
+                                <div class="row gy-4">
+                                </div>
+                                    <div class="col-md-10-center">
+                                        <input type="text" name="departure" class="form-control" placeholder="Código" required>
+                                    </div>
+                                <div class="col-md-12 text-center">
+
+                                    </button> <button type="submit">Finalizar</button>
+
+                                </div>
+
+                                <div class="text-center">
+                                    <h2>InstaYa</h2>
+                                    <h3>Recogida de paquetes</h3>
+
+                                    <h1>
+
+
+                                    </h1>
+                                </div>
+
+
+                                <p>SEGUIMIENTO DE UN ENVIÓ</p>
+                                <div class="col-md-12 text-center">
+                                    <p>Inserte el código</p>
+                                </div>
+                                <div class="row gy-4">
+                                </div>
+                                <div class="col-md-10-center">
+                                    <input type="text" name="departure" class="form-control" placeholder="Código" required>
+                                </div>
+                                <div class="col-md-12 text-center">
+
+                                    </button> <button type="submit">Consultar</button>
                         </div>
+
+                                <p>SEGUIMIENTO DE UN ENVIÓ</p>
+                                <div class="col-md-12 text-center">
+                                    <p>Estado del envió</p>
+                                </div>
+                                <div class="row gy-4">
+                                </div>
+                                <div class="col-md-10-center">
+                                    <input type="text" name="departure" class="form-control" placeholder=" " required>
+                                </div>
+                                <div class="col-md-12 text-center">
+
+                                    </button> <button type="submit">Finalizar</button>
+                                </div>
+
                     </form>
                 </div><!-- End Quote Form -->
 
@@ -191,6 +355,8 @@
 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="assets/vendor/aos/aos.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>
+
+
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
