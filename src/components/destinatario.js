@@ -1,47 +1,68 @@
 import React from 'react';
 import Input from './input';
+import Encabezado from "./encabezado";
 
-export default function Destinatario() {
+class Destinatario extends React.Component
+{
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
 
-    return (
-        <section id="get-a-quote" className="get-a-quote">
-            <div className="container">
-                <div className="row g-0">
-                    <div className="col-lg-5 quote-bg" style={{ backgroundImage: 'url(assets/img/quote-bg.jpg)'}}>
-                    </div>
-                    <div className="col-lg-7">
-                        <form action="forms/quote.php" method="post" className="php-email-form">
-                            <div className="text-center">
-                                <h2>InstaYa</h2>
-                                <h3>Recogida de paquetes</h3>
-                            </div>
-                            <p>DESTINATARIO</p>
-                            <div className="row gy-4">
+    handleChange(e, key, value=null)
+    {
+        let form = this.props.form;
+        form[key] = value == null ? e.target.value : value;
+        this.props.onFormChange(form);
+    }
 
-                                <div className="col-md-6">
-                                    <input type="text" name="departure" className="form-control" placeholder="Nombres" required />
+    render()
+    {
+        const nombres = this.props.form.destinatarioNombres;
+        const apellidos = this.props.form.destinatarioApellidos;
+        const identificacion = this.props.form.destinatarioIdentificacion;
+        const direccion = this.props.form.destinatarioDireccion;
+        const ciudad = this.props.form.destinatarioCiudad;
+
+        return (
+            <section id="get-a-quote" className="get-a-quote">
+                <div className="container">
+                    <div className="row g-0">
+                        <div className="col-lg-5 quote-bg" style={{ backgroundImage: 'url(assets/img/quote-bg.jpg)'}}>
+                        </div>
+                        <div className="col-lg-7">
+                            <form action="forms/quote.php" method="post" className="php-email-form">
+                                <Encabezado />
+                                <p>DESTINATARIO</p>
+                                <div className="row gy-4">
+
+                                    <div className="col-md-6">
+                                        <Input type="text" name="nombres" className="form-control" label="Nombres" required onChange={ event => this.handleChange(event, 'destinatarioNombres')} value={nombres} />
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <Input type="text" name="apellidos" className="form-control" label="Apellidos" required onChange={ event => this.handleChange(event, 'destinatarioApellidos')} value={apellidos} />
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <Input type="text" name="identificacion" className="form-control" label="Identificación" required onChange={ event => this.handleChange(event, 'destinatarioIdentificacion')} value={identificacion}/>
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <Input type="text" name="direccion" className="form-control" label="Dirección de destino" required onChange={ event => this.handleChange(event, 'destinatarioDireccion')} value={direccion}/>
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <Input type="text" name="ciudad " className="form-control" label="Ciudad de destino" required onChange={ event => this.handleChange(event, 'destinatarioCiudad')} value={ciudad}/>
+                                    </div>
                                 </div>
-
-                                <div className="col-md-6">
-                                    <input type="text" name="delivery" className="form-control" placeholder="Apellidos" required />
-                                </div>
-
-                                <div className="col-md-6">
-                                    <input type="text" name="weight" className="form-control" placeholder="Identificación" required />
-                                </div>
-
-                                <div className="col-md-6">
-                                    <input type="text" name="dimensions" className="form-control" placeholder="Dirección de destino" required />
-                                </div>
-
-                                <div className="col-md-6">
-                                    <input type="text" name="dimensions" className="form-control" placeholder="Ciudad de destino" required />
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    )
+            </section>
+        )
+    }
 }
+
+export default Destinatario

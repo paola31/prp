@@ -1,52 +1,76 @@
 import React from 'react';
 import Input from './input';
+import Encabezado from "./encabezado";
 
-export default function Paquete() {
+class Paquete extends React.Component
+{
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.state = {isChecked: false};
+    }
 
-    return (
-        <section id="get-a-quote" className="get-a-quote">
-            <div className="container">
-                <div className="row g-0">
-                    <div className="col-lg-5 quote-bg" style={{ backgroundImage: 'url(assets/img/quote-bg.jpg)'}}></div>
-                    <div className="col-lg-7">
-                        <form action="forms/quote.php" method="post" className="php-email-form">
-                            <div className="text-center">
-                                <h2>InstaYa</h2>
-                                <h3>Recogida de paquetes</h3>
-                            </div>
+    toogleChecked(e, key)
+    {
+        this.setState({isChecked: !this.state.isChecked});
+        this.handleChange(e, key, !this.state.isChecked);
+    }
 
-                            <p>CARACTERISTICAS DEL PAQUETE</p>
-                            <div className="row gy-4">
-                                <div className="col-md-6">
-                                    <Input type="text" name="width" className="form-control" placeholder="Ancho" required />
-                                </div>
+    handleChange(e, key, value=null)
+    {
+        let form = this.props.form;
+        form[key] = value == null ? e.target.value : value;
+        this.props.onFormChange(form);
+    }
 
-                                <div className="col-md-6">
-                                    <Input type="text" name="height" className="form-control" placeholder="Alto" required />
-                                </div>
+    render()
+    {
+        const ancho = this.props.form.ancho;
+        const alto = this.props.form.alto;
+        const largo = this.props.form.largo;
+        const peso = this.props.form.peso;
 
-                                <div className="col-md-6">
-                                    <Input type="text" name="long" className="form-control" placeholder="Largo" required />
-                                </div>
+        return (
+            <section id="get-a-quote" className="get-a-quote">
+                <div className="container">
+                    <div className="row g-0">
+                        <div className="col-lg-5 quote-bg" style={{ backgroundImage: 'url(assets/img/quote-bg.jpg)'}}></div>
+                        <div className="col-lg-7">
+                            <form action="forms/quote.php" method="post" className="php-email-form">
+                                <Encabezado />
 
-                                <div className="col-md-6">
-                                    <input type="text" name="weight" className="form-control" placeholder="Peso (kg)" required />
-                                </div>
-
-                                <div className="row">
+                                <p>CARACTERISTICAS DEL PAQUETE</p>
+                                <div className="row gy-4">
                                     <div className="col-md-6">
-                                        <label htmlFor="md">
-                                            Mercancía delicada
-                                        </label>
-                                        <input type="checkbox" id="md" />
+                                        <Input type="text" name="ancho" className="form-control" label="Ancho" required onChange={ event => this.handleChange(event, 'ancho')} value={ancho}/>
                                     </div>
-                                </div>
 
-                            </div>
-                        </form>
+                                    <div className="col-md-6">
+                                        <Input type="text" name="alto" className="form-control" label="Alto" required onChange={ event => this.handleChange(event, 'alto')} value={alto} />
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <Input type="text" name="largo" className="form-control" label="Largo" required onChange={ event => this.handleChange(event, 'largo')} value={largo}/>
+                                    </div>
+
+                                    <div className="col-md-6">
+                                        <Input type="text" name="peso" className="form-control" label="Peso (kg)" required onChange={ event => this.handleChange(event, 'peso')} value={peso}/>
+                                    </div>
+
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <Input type="checkbox" id="md" label="Mercancía delicada"  onChange={ event => this.toogleChecked(event, 'md')} defaultChecked={this.state.isChecked}/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    )
+            </section>
+        )
+    }
 }
+
+export default Paquete;
